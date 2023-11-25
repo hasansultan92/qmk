@@ -120,7 +120,12 @@ bool rgb_matrix_indicators_kb(void) {
     }
     if (host_keyboard_led_state().caps_lock)
     {
-        rgb_matrix_set_color(30, 0xFF, 0xFF, 0xFF);
+        //rgb_matrix_set_color(30, 0xFF, 0xFF, 0xFF);
+        const int capsRow[14] = { 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 };
+        for (uint8_t led = 0; led < 14; led++){
+            rgb_matrix_set_color(capsRow[led],50,100,50);
+            for (uint8_t i=0;i<100;i++);
+        }
     }
     return true;
 }
